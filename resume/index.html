@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的网页</title>
+
+    <title>我</title>
+    <link rel="stylesheet" href="/css/a.css"  charset="utf-8" />
+
 </head>
 <body>
-    <div class="topNavBar">
-        <img src="#" alt="logo"> 
+    <div class="topNavBar clearfix" >
+        <a class="logo" href="#" alt="logo" >
+            <span class="rs">RS</span ><span class="card">card</span>
+        </a>
         <nav>
-            <ul>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">SKILLS</a></li>
-                <li><a href="#">PORTFOLIO</a></li>
-                <li><a href="#">EXPERIENCE</a></li>
-                <li><a href="#">PRICING</a></li>
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#">CALENDAR</a></li>
-                <li><a href="#">CONTACT</a></li>
-                <li><a href="#">OTHER</a></li>
+            <ul class="clearfix">
+                <li ><a href="#">关于</a></li>
+                <li ><a href="#">技能</a> </li>
+                <li ><a href="#">作品</a></li>
+                <li ><a href="#">博客</a></li>
+                <li ><a href="#">日历</a></li>
+                <li ><a href="#">联系方式</a></li>
+                <li ><a href="#">其他</a></li>
             </ul>
         </nav>   
     </div>
-    <div class="banner" style="background-image: url(#)">   </div>
+    <div class="banner" style="background-image: url(./cover.jpg) ;border:1px solid red;height:100px;" >   </div>
     <main>
         <div class="card">
             <div class="picture">
@@ -36,7 +36,7 @@
                     <p>深大信工大三学生</p>
                     <hr>
                     <dl>
-                        <dt年龄></dt>
+                        <dt>年龄</dt>
                         <dd>21</dd>
                         <dt>所在城市</dt>
                         <dd>深圳</dd>
@@ -57,11 +57,38 @@
                 </footer>
             </div>
         </div>
-        <a href="" class="button">下载pdf</a>
+        <a href="" class="button">下载 PDF 简历</a>
         <p>
             翟俊豪，深大信工大三学生 <br>
             技能：前端开发
         </p>
     </main>
+    <section>
+        <h2>技能</h2>
+        <ol>
+            <li>HTML 5 &amp; CSS 3 </li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>Vue</li>
+            <li>React</li>
+            <li>HTTP</li>
+        </ol>
+    </section>
+    <section> 
+        <h2>作品集</h2>
+        <nav>
+            <ol>
+                <li>所有</li>
+                <li>框架</li>
+                <li>原生JS&amp;CSS</li>
+            </ol>
+        </nav>
+        <div class="jobs">
+            <div class="big"></div>
+            <div class="small"></div>
+            <div class="small"></div>
+        </div>
+
+    </section>
 </body>
 </html>
