@@ -16,34 +16,43 @@ a{
 }
 
 .topNavBar {
+  position:fixed;
+  top: 0;
+  left:0;
   padding-top: 13px;
   padding-bottom: 13px;
-  padding-left:16px;
-  padding-right:16px;
+  width: 100%
   /*padding:上 右 下 左；*/
 } 
+
+.topNavBar-inner{
+  padding:0 16px;;
+} 
+
+
 .topNavBar > a{
   float:left;
 } 
 
-.topNavBar >nav{
+.topNavBar nav{
   float: right;
   padding-top: 2px;
+  font-family: ;
 } 
 
-.topNavBar > nav > ul {
+.topNavBar  nav > ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.topNavBar > nav > ul > li {
+.topNavBar  nav > ul > li {
  float: left;
  margin-left: 22px;
  margin-right: 22px;
 }
 
-.topNavBar > nav > ul > li >a {
+.topNavBar  nav > ul > li >a {
   font-size: 13px;
   color:#C3C4C7;
   font-weight: bold;
@@ -54,7 +63,7 @@ a{
   display: block; 
  }
  
- .topNavBar > nav > ul >  li >a:hover {
+ .topNavBar  nav > ul >  li >a:hover {
 border-bottom:2px solid #E8676B  ;
  } 
 
@@ -74,3 +83,16 @@ border-bottom:2px solid #E8676B  ;
  }
 
 
+.banner {
+  height:515px;
+  background-image: url(../cover.jpg);
+  background-position:center center;
+  background-size: cover;
+}
+
+.banner .mask{
+  height:515px;
+  background-color:rgba(0,0,0,0.7);
+
+
+}
