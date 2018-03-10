@@ -4,9 +4,19 @@
 
     <title>我的简历</title>
     <link rel="stylesheet" href="./css/a.css"  charset="utf-8" />
-
+    <script src="//at.alicdn.com/t/font_586449_0c5wsfzosp833di.js"></script>
 </head>
+<style type="text/css">
+    .icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
 <body>
+
+
     <div class="topNavBar " >
         <div class="topNavBar-inner clearfix">
         <a class="logo" href="#" alt="logo" >
@@ -30,15 +40,19 @@
   
     </div>
     <main>
-        <div class="card">
-            <div class="picture">
-                <img src="" alt="头像">
+        <div class="userCard ">
+            <div class="PictureAndText clearfix">
+            <div class="picture " style>
+                <img src="./picture.png" style="width:295px; height:342px;" alt="头像">
             </div>
             <div class="text">
-                <div class="profile">
-                    <span class="welcome"> Hello</span>
+                
+                  <span class="welcome"> Hello
+                      <span class="triangle"></span>
+                  </span>
                     <h1>翟俊豪</h1>
                     <p>深大信工大三学生</p>
+
                     <hr>
                     <dl>
                         <dt>年龄</dt>
@@ -49,34 +63,127 @@
                         <dd>499158415@qq.com</dd>
                         <dt>手机</dt>
                         <dd>13128839389</dd>
-                    </dl>
+                    </dl> 
                 </div>
-                <footer class="media">
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                  <a href="#"><img src="#" alt="#"></a>
-                </footer>
             </div>
+                <footer class="media">
+
+                 <a href="https://github.com/Mr-Almost" target="_blank">
+                     <svg class="icon" aria-hidden="true">
+                             <use xlink:href="#icon-github"></use>
+                    </svg>
+                </a>
+
+                <a href="https://www.zhihu.com/people/nai-ge-oon-81"  target="_blank">
+                    <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-zhihu0"></use>
+                    </svg>
+                  </a>
+
+                
+            
+                      
+                  <a href="//weibo.com/u/2032244331"  target="_blank">
+                        <svg class="icon" aria-hidden="true" style=" width: 27px;">
+                                 <use xlink:href="#icon-weibo"></use>
+                         </svg>
+                      </a>
+
+                </footer>
+            
         </div>
-        <a href="" class="button">下载 PDF 简历</a>
-        <p>
-            翟俊豪，深大信工大三学生 <br>
+        <p class="download-wrapper" >
+        <a class="download" href="./resume.txt" target="_blank" download>  DOWNLOAD RESUME  </a>
+      
+        <!--
+        </p>
+        <p class="selfIntroduction">
+            翟俊豪， 深大信工大三学生 <br>
             技能：前端开发
         </p>
+    -->
+      
     </main>
-    <section>
+    <section class="skills ">
         <h2>技能</h2>
-        <ol>
-            <li>HTML 5 &amp; CSS 3 </li>
-            <li>JavaScript</li>
-            <li>jQuery</li>
-            <li>Vue</li>
-            <li>React</li>
-            <li>HTTP</li>
+        <ol class="clearfix">
+            
+            <li>
+                <div class="skills-wrapper">
+
+                </div>
+                    <h3>  
+                        HTML 5 &amp; CSS 3
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress" style="width:80%;">
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+            <li>
+                    <h3>  
+                            JavaScript
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress"  style="width:30%;">
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+            <li>
+                    <h3>  
+                            jQuery
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress" style="width:50%;"> 
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+            <li>
+                    <h3>  
+                            Vue
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress" style="width:30%;"> 
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+            <li>
+                    <h3>  
+                            React
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress" style="width:50%;">
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+            <li>
+                    <h3>  
+                            HTTP
+                    </h3>
+                    <div class="progressBar">
+                        <div class="progress"  style="width:80%;">
+
+                        </div>
+                    </div>
+                
+               </li>
+                      
+        
         </ol>
     </section>
     <section> 
