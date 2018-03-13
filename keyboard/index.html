@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./a.css">
+</head>
+<body>
+<main id="xx">
+
+
+</main>
+    
+</body>
+<script>
+    var keys=[
+        
+        ['q','w','e','r','t','y','u','i','o','p'],
+        ['a','s','d','f','g','h','j','k'],
+        ['z','x','c','v','b','n','m']
+    ]
+    var hash={
+        q:'qq.com',
+        w:'weibo.com',
+        e:'ele.me',
+        r:undefined
+    }
+    var hashInLocalStorage=JSON.parse(localStorage.getItem(name) || 'null')
+    if(hashInLocalStorage){
+        hash=hashInLocalStorage
+    }
+
+    for(var index=0;index<keys['length'];index++){
+        div=document.createElement('div')
+        xx.appendChild(div)
+        row=keys[index]
+        div.className = 'row'
+            for(var index1=0;index1<row['length'];index1++){
+            kbd=document.createElement('kbd')
+            kbd.textContent= row[index1]
+            button=document.createElement('button')
+            button.textContent= '编辑'
+            button.onclick = function (onclick){ 
+                 var key = onclick.target.id                        //得到点击目标的id
+                 var input =prompt('请输入一个网址')                  //弹出一个窗口输入内容
+                 hash[key] =input  
+                 localStorage.setItem('zzz', JSON.stringify(hash))  //保留缓存 
+                 console.log(hash)
+            }
+
+          
+
+            button.id=row[index1]
+            div.appendChild(kbd)
+            kbd.appendChild(button)                    //在父类插入一个标签
+        }
+         
+     }
+
+    document.onkeypress = function (abc){
+        var keypress=abc['key']
+        var domain=hash[keypress]
+        window.open('http://'+domain,'_blank');       //新窗口打开页面
+     }
+
+
+</script>
+</html>

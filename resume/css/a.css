@@ -367,6 +367,15 @@ section.portfolio > nav .bar{
   margin-bottom: 28px;
   border-radius: 2px;
 }
+
+section.portfolio > nav > ol > li{
+  float: left;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+
+
 section.portfolio > nav .bar-inner{
   height: 100%;
   background: #E6686A;
