@@ -8,24 +8,30 @@
     <link rel="stylesheet" href="./a.css">
 </head>
 <body>
-<main id="xx">
+<main>
+<div id="wrapper">
 
-
+</div>
 </main>
     
 </body>
 <script>
     var keys=[
         
-        ['q','w','e','r','t','y','u','i','o','p'],
-        ['a','s','d','f','g','h','j','k'],
-        ['z','x','c','v','b','n','m']
+        ['q','w','e','r','t','y','u','i','o','p','{','}'],
+        ['a','s','d','f','g','h','j','k','l',':','"'],
+        ['z','x','c','v','b','n','m','<','>','?']
     ]
     var hash={
         q:'qq.com',
         w:'weibo.com',
         e:'ele.me',
-        r:undefined
+        r:'renren.com',
+        t:'taobao.com',
+        l:'lol.com',
+        g:'google.com',
+        a:'alibaba.com'
+
     }
     var hashInLocalStorage=JSON.parse(localStorage.getItem(name) || 'null')
     if(hashInLocalStorage){
@@ -34,27 +40,47 @@
 
     for(var index=0;index<keys['length'];index++){
         div=document.createElement('div')
-        xx.appendChild(div)
+        wrapper.appendChild(div)
         row=keys[index]
         div.className = 'row'
             for(var index1=0;index1<row['length'];index1++){
             kbd=document.createElement('kbd')
             kbd.textContent= row[index1]
+            img=document.createElement('img')
             button=document.createElement('button')
             button.textContent= '编辑'
-            button.onclick = function (onclick){ 
-                 var key = onclick.target.id                        //得到点击目标的id
+            button.onclick = function (onclick){  
+                 var button2 = onclick.target          //得到点击目标的id
+                 var img2 = button2.previousSibling   
+                 var key=button2['id']                
                  var input =prompt('请输入一个网址')                  //弹出一个窗口输入内容
                  hash[key] =input  
+                 img2.src = 'http://'+input + '/favicon.ico' ;
+                 img2.onerror = function(xxx){
+					xxx.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+				}
                  localStorage.setItem('zzz', JSON.stringify(hash))  //保留缓存 
-                 console.log(hash)
             }
+            
 
           
 
             button.id=row[index1]
+           
+            if (  hash[row[index1]] ){
+            img.src = 'http://'+hash[  row[index1]  ]+'/favicon.ico'
+            }else{
+            img.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+            }
+            img.onerror=function(error){
+                error.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png'
+            }
+            
+
             div.appendChild(kbd)
-            kbd.appendChild(button)                    //在父类插入一个标签
+            kbd.appendChild(img)
+            kbd.appendChild(button)  
+                             //在父类插入一个标签
         }
          
      }
