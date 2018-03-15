@@ -1,8 +1,22 @@
 #xxx{
-  background: red;
-  display: block;
-  
-  
+  display: block; 
+}
+
+*{
+margin:0;
+padding:0;
+
+}
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+
+
+ul,ol{
+list-style:none;
 }
 
 body{
@@ -16,10 +30,65 @@ html{
 
 .actions{
   position:fixed;
-  bottom:0;
-  left:0;
+  top:0px;
+  left:0px;
+  padding:20px;
 }
 
+.actions svg{
+  width:1.5em;
+  height:1.5em;
+  transition: all 0.3s;
+  margin: 0 8px;
+}
+
+.actions svg.active{
+fill:red;
+transform:scale(1.2);
+
+}
+
+
+.color{
+position:fixed;
+top: 70px;
+left:25px;
+
+}
+
+.color >li{
+width:20px;
+height:20px;
+box-shadow: 0 0 3px rgba(0,0,0,0.5);
+margin:13px 0;
+border-radius: 50%;
+transition: 0.3s;
+
+}
+
+
+.color >.red{
+  background: red;
+}
+
+.color >.green{
+  background: green;
+}
+
+.color > .blue{
+  background: blue;
+}
+
+
+.color >li.active{
+  box-shadow: 0 0 3px rgba(0,0,0,0.9);
+  transform:scale(1.2);
+}
+
+
+
+
+/*
 .actions > #brush{
   display: none;
 }

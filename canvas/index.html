@@ -4,16 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的画板</title>
- 
   <link rel="stylesheet" href="a.css">
+    
 </head>
 
 <body>
 <canvas id=xxx width=300 height=300></canvas>
   <div id=actions class="actions">
-    <button id=eraser>橡皮擦</button>
-    <button id=brush>画笔</button>
+      <svg class="icon active" aria-hidden="true" id='brush'>
+          <use xlink:href="#icon-pen"></use>
+      </svg>
+      <svg class="icon" aria-hidden="true" id='eraser'>
+          <use xlink:href="#icon-eraser"></use>
+      </svg>
    </div>
+
+<ol class="color">
+<li id="red" class="red active"></li>
+<li id="green" class="green"></li>
+<li id="blue" class="blue"></li>
+</ol>
+
    <script src="main.js"></script>
+   <script src="//at.alicdn.com/t/font_586449_pvi2wqr3tedn29.js"></script>
   </body>
 </html>
