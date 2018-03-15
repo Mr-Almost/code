@@ -1,7 +1,7 @@
 var yyy=document.getElementById('xxx');
 var context =yyy.getContext('2d');
 autoSetCanvasSize(yyy);
-listenToMouse (yyy);
+listenToUser (yyy);
 
 var Eraserstate=false;
 var usingEraser=false;
@@ -38,12 +38,68 @@ context.lineTo(300,300);
 context.fill();
 */
 
-function listenToMouse (yyy){
+function listenToUser (yyy){
+  
+  //特性检测
+  if(document.body.ontouchstart !== undefined) //触屏设备 
+{
+  //触屏设备支持多点触屏，所以touch的x和y属性会被藏起来
+  yyy.ontouchstart =function(aaa){
+    var x=aaa.touches[0].clientX;
+    var y=aaa.touches[0].clientY;
+    if(Eraserstate){
+      usingEraser=true;
+      context.clearRect(x-5,y-5,10,10);
+
+    }else{
+    painting=true;
+    lastPoint ={"x":x,"y":y};
+    drawCircle(x,y,1);
+  
+  }
+  }
+
+  yyy.ontouchmove =function(aaa){
+
+    var x=aaa.touches[0].clientX;
+    var y=aaa.touches[0].clientY;
+    if(Eraserstate){
+       if(usingEraser)
+        context.clearRect(x-5,y-5,10,10);
+    }else{
+       if(painting){
+        var newPoint={"x":x,"y":y};
+        drawCircle(x,y,1);
+        drawline(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y);
+        lastPoint=newPoint;
+        }
+    }
+  
+  }
+  
+  yyy.ontouchend =function(aaa){
+
+    if(Eraserstate){
+      usingEraser=false;
+ 
+    }else{
+ 
+      painting=false;
+    }
+    };
+
+
+  
+
+}else{
+
+
 
   var painting =false;
   var lastPoint= {"x":undefined,"y":undefined};
   
   yyy.onmousedown =function(aaa){
+
     var x=aaa.clientX;
     var y=aaa.clientY;
     if(Eraserstate){
@@ -78,14 +134,16 @@ yyy.onmousemove=function(aaa){
 };
 
 yyy.onmouseup =function(aaa){
-if(Eraserstate){
+  if(Eraserstate){
        usingEraser=false;
   
   }else{
   
        painting=false;
   }
-};
+  };
+
+}
 }
 
 
