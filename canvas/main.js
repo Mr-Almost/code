@@ -76,7 +76,7 @@ blue.classList.remove('active');
     document.body.appendChild(a);
     a.href=url;
     a.download= '我的作品';
-    a.target='_blank';
+    a.target='_blank' ;
     a.click();
    
   }
