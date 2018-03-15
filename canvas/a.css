@@ -67,6 +67,9 @@ transition: 0.3s;
 
 }
 
+.color > .black{
+  background: black;
+}
 
 .color >.red{
   background: red;
@@ -79,6 +82,8 @@ transition: 0.3s;
 .color > .blue{
   background: blue;
 }
+
+
 
 
 .color >li.active{
