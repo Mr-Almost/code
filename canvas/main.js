@@ -1,3 +1,4 @@
+
 var yyy=document.getElementById('xxx');
 var context =yyy.getContext('2d');
 var lineWidth=5;
@@ -69,14 +70,14 @@ blue.classList.remove('active');
     context.clearRect(0,0, yyy.width,yyy.height);
   }
   download.onclick=function(){
-    var url =  yyy.toDataURL("image/png")
+    var url =  yyy.toDataURL("image/png");
    
-    var a= document.createElement('a')
-    document.body.appendChild(a)
-    a.href=url
+    var a= document.createElement('a');
+    document.body.appendChild(a);
+    a.href=url;
     a.download= '我的作品';
-    a.target='_blank'
-    a.click()
+    a.target='_blank';
+    a.click();
    
   }
 
