@@ -1,5 +1,6 @@
 #xxx{
   display: block; 
+  background: white;
 }
 
 *{
@@ -21,7 +22,7 @@ list-style:none;
 
 body{
   margin:0px;
-  overflow:hidden;
+  overflow: hidden;
 
 }
 
@@ -92,6 +93,33 @@ transition: 0.3s;
 }
 
 
+.size{
+position:fixed;
+right:10px;
+top:18px;
+
+}
+
+.size{
+  margin:8px 0;
+  
+
+} 
+.size> .thin{
+  height:10px;
+  width:30px;
+  border-top:5px solid black;
+  border-radius:2px;
+  margin:5px;
+}
+.size> .thick{
+  height:10px;
+  width:30px;
+  border-top:10px solid black;
+  border-radius:2px;
+ 
+  margin:5px;
+}
 
 
 /*
