@@ -462,9 +462,7 @@ section.portfolio .works > .small {
 
 
 
-[data-x]:active{
-  outline:10px solid red;
-}
+
 [data-x].offset{
   transform:translateY(100px);
 }
