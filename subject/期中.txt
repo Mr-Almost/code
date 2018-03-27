@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/print.css" media="print">
+  <link rel="stylesheet" href="/mobile.css" media="screen and (max-device-width: 500px)">
+  
+  <title>我的页面</title>
+</head>
+<body>
+  <svg>
+    <circle cx="100" cy="100" r="50"  fill="red" />
+
+  </svg>
+  
+  
+<script src="/main.js"></script>
+<script src="/gbk.js" charset="gbk"></script>
+</body>
+</html>
+
+
+对于移动端适配的理解：目前移动设备屏幕的尺寸还有像素都不相同，如何让我的网页在不同移动设备显示是一样的或者差不多的？如果不能一样，那能不能做到改变页面布局但是依旧保持好看舒适？
+
+那移动端怎么做适配？
+解决问题要从原因入手。目前导致移动端不适配的原因有：
+1.尺寸：不同设备有不同屏幕尺寸以及横竖屏的状态
+2.像素：屏幕物理像素dpr 与 设备独立像素px 不匹配
+
+对于尺寸的解决方案：    （ 摘录自http://imweb.io ）
+1.meta viewport缩放：无论如何改变，保持同样大小不变
+以最小的Iphone4/5的宽度（320px）为基准，还原视觉稿。
+```
+<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0"/>
+```
+然后对不同屏幕分辨率的手机进行简单粗暴的等比例缩放设置。 例如：iphone8（375px）initial-scale = 375 / 320 = 1.18
+```
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.18 />
+```
+缺点：initial-scale越来越大，页面内容也就被拉伸也越厉害，导致页面内容会变得模糊，这个方法已经被摒弃了。
+
+2 响应式布局（媒体查询）
+通过媒体查询根据不同的屏幕分辨率来进行适配,也就是在不同像素宽度的设备上显示不同的样式
+```
+html {
+    font-size : 20px;
+}
+@media only screen and (min-width: 401px){
+    html {
+        font-size: 25px !important;
+    }
+}
+@media only screen and (min-width: 428px){
+    html {
+        font-size: 26.75px !important;
+    }
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 30px !important; 
+    }
+}
+@media only screen and (min-width: 569px){
+    html {
+        font-size: 35px !important; 
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 40px !important; 
+    }
+}
+```
+缺点：
+屏幕分辨率分区间：区间内无法进行区分，无法实现100%兼容，一般是用主流分辨率来进行划分；
+额外的工作量：响应式布局的工作都是需要开发者去实现的，带来了额外的开放量；
+不适合功能复杂的页面：响应式一般适合用于资讯类页面，功能复杂的网站对于页面的整体排版和样式要求较高（特别是对比PC和H5）；
+
+3.rem
+rem的英文解释是font size of the root element，即根元素字体的大小，也就是<html>字体的大小.
+（注意：rem不等于em，em是父元素字体的大小）
+```
+html {font-size: 12px;}
+h1 { font-size: 2rem; } /* 2 × 12px = 24px */
+p { font-size: 1.5rem;} /* 1.5 × 12px = 18px */
+div {width: 20rem;} /* 20 * 12px = 240px*/
+```
+只要根据不同屏幕设定好根元素<html>的font-size，其他已经使用了rem单位的元素就会自适应显示相应的尺寸了。 
+设置根元素<html>的font-size的方法：
+1.
+```
+const oHtml = document.getElementsByTagName('html')[0]
+const width = oHtml.clientWidth;   // 320px的屏幕基准像素为12px
+oHtml.style.fontSize = 12 * (width / 320) + "px";
+```
+
+O(n*n)：
+冒泡排序思路：两两交换，大的放在后面，第一次排序后最大值已在数组末尾，不断循环n-1次。
+选择排序思路：首先在未排序列中找到最小元素，存放到排序序列的起始位置，然后再从剩余未排序元素中继续寻找最小元素，放到已排序序列的末尾，循环n-1次。
+
+O(n log2 n)：
+快速排序思路：在数组中拟定一个节点，比它小的放在节点左边，比它大的放在节点右边；完成这个操作后，左右两边也递归这个操作直到全部节点遍历一遍。
+
+O(n + max)：
+基数排序(桶排序)：准备10个桶，分别为0~9号。数组对个位依次进行对号入列，然后按1-9的顺序依次出列；再对十位数进行对号入座，再按1-9的顺序依次出列；循环该数组最大值位数的次数。
+
+```
+POST /path HTTP/1.1
+Host: www.baidu.com
+User-Agent: curl/7.54.0
+Accept: */*
+Content-Length: 10
+Content-Type: application/x-www-form-urlencoded
+
+username=ff&&password=123
+```
+
+200 OK :请求成功。一般用于GET与POST请求
+
+202 Accepted :已接受。已经接受请求，但未处理完成
+
+301 Moved Permanently  永久移动。 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置
+
+304 Not Modified :未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源
+
+400 Bad Request :客户端请求的语法错误，服务器无法理解
+
+401 Unauthorized:请求要求用户的身份认证
+
+404 (Not Found/未找到):服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面
+
+414 :请求的URI过长（URI通常为网址），服务器无法处理
+
+500 Internal Server Error :服务器内部错误，无法完成请求
+
+505 HTTP Version not supported :服务器不支持请求的HTTP协议的版本，无法完成处理
+
+使用 call(),apply(),bind() 的目的是为了改变 this 的指向,区别是传参和调用方式不同。
+```
+var xw={
+    name: "小王",
+    gender: "男",
+    age: 24,
+    say: function(school,grade){
+        alert(this.name+" , "+this.gender+" ,今年"+this.age+" ,在"+school+"上"+grade);
+    }
+}
+var xh={
+    name: "小红",
+    gender: "女",
+    age: 18
+}
+
+xw.say.call(xh,"实验小学","六年级");     
+xw.say.apply(xh,["实验小学","六年级"]);
+xw.say.bind(xh,"实验小学","六年级")();
+xw.say.bind(xh)("实验小学","六年级");
+```
+传参：
+call()方法接受的是若干个参数的列表，且参数与与say方法中是一一对应的；
+apply()方法接受的是一个包含多个参数的数组，数组中的元素也是是和say方法中一一对应的；
+bind()方法以像call那样传参。同时bind()返回的仍然是一个函数，所以我们也可以在调用的时候再进行传参。
+
+调用：
+call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以。
+
+
+闭包：如果一个函数使用了它范围外的变量，那么这个函数+这个变量就叫做闭包
+用途：它的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+
+.1.输入网址Url
+           端口默认为80，一共有6要素:协议，域名，路径，查询参数，锚点，端口
+2.DNS解析得到ip
+            DNS查找缓存顺序：浏览器缓存——>hosts文件——>路由器缓存——>网络服务商缓存——>根域名服务器缓存
+3.建立连接--三次握手
+4.网页请求与显示           
+            浏览器向 web 服务器发送一个 HTTP 请求，请求中包含请求文件的位置、请求文件的方式等等
+            服务器处理请求,返回一个 HTTP 响应，根据 HTTP 请求中的内容来决定如何获取相应的 HTML 文件
+            服务器将得到的HTML传送给浏览器
+            浏览器处理html，继续请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
+            在这过程中浏览器不断渲染页面
+5.断开连接--四次挥手
+
+补充：
+三次握手的过程：
+主机向服务器发送一个建立连接的请求（您好，我想认识您）；
+服务器接到请求后发送同意连接的信号（好的，很高兴认识您）；
+主机接到同意连接的信号后，再次向服务器发送了确认信号（我也很高兴认识您），自此，主机与服务器两者建立了连接。
+
+
+四次挥手的过程：
+主机向服务器发送一个断开连接的请求（不早了，我该走了）；
+服务器接到请求后发送确认收到请求的信号（知道了）；
+服务器向主机发送断开通知（我也该走了）；
+主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接；
