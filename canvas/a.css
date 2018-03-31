@@ -18,6 +18,12 @@ padding:0;
    overflow: hidden;
 }
 
+body{
+  background-image:url(background.jpg);
+}
+
+
+
 
 ul,ol{
 list-style:none;
