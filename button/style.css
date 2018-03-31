@@ -1,0 +1,15 @@
+.float{
+    height:30px;
+    width:100px;
+    display:inline-block;
+    background-color:red;
+    position:absolute;
+  }
+  
+  button{
+    position:relative;
+  }
+  
+  
+  
+     
